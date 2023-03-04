@@ -1,6 +1,7 @@
 package com.mateo9x.carbot.handler;
 
 import com.mateo9x.carbot.enums.Response;
+import com.mateo9x.carbot.game.FunFact;
 import com.mateo9x.carbot.validator.ForbiddenWordDictionary;
 import lombok.extern.slf4j.Slf4j;
 import net.dv8tion.jda.api.entities.Message;
@@ -27,7 +28,7 @@ public class MessageHandler {
         if (isMessageForBot(message.getContentDisplay())) {
             switch (Response.getResponseByValue(message.getContentDisplay())) {
                 case FunFact -> {
-                    message.getChannel().sendMessage("Ciekawostka:").complete();
+                    FunFact.drawFunFact(message);
                 }
                 case Quiz -> {
                     message.getChannel().sendMessage("Czas na quiz:").complete();
