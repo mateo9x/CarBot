@@ -1,16 +1,13 @@
 [
   {
-    "id": 1,
     "question": "Which brand of car is produced in Bavaria?",
     "answers": ["bmw", "BMW"]
   },
   {
-    "id": 2,
     "question": "Where in car is storaged oil?",
     "answers": ["sump", "oil sump"]
   },
   {
-    "id": 3,
     "question": "Which tool allows us to check oil level?",
     "answers": ["dipstick", "oil dipstick"]
   }

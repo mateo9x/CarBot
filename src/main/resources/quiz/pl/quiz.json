@@ -1,16 +1,13 @@
 [
   {
-    "id": 1,
     "question": "Jaka marka samochodu pochodzi z Bawarii?",
     "answers": ["bmw", "BMW", "beemka"]
   },
   {
-    "id": 2,
     "question": "Miejsce w którym przechowywany jest olej w samochodzie?",
     "answers": ["miska", "miska olejowa"]
   },
   {
-    "id": 3,
     "question": "Czym sprawdzamy poziom oleju?",
     "answers": ["bagnet", "bagnet olejowy"]
   }
