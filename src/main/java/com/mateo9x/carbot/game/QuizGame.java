@@ -41,7 +41,7 @@ public class QuizGame {
         String quiz = generateQuiz(language);
         String header = MessageSource.getMessage(language, QUIZ_START_PROPERTY);
         String responseTip = MessageSource.getMessage(language, QUIZ_RESPONSE_TIP_PROPERTY);
-        message.getChannel().sendMessage(header + ": \n\n" + quiz + "\n\n" + responseTip)
+        message.getChannel().sendMessage(header + "\n\n" + quiz + "\n\n" + responseTip)
                 .complete();
     }
 

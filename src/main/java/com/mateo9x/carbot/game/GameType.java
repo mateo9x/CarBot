@@ -5,6 +5,7 @@ import java.util.Arrays;
 public enum GameType {
     FunFact("/funfact"),
     Quiz("/quiz"),
+    CarMeter("/carmeter"),
     None(null);
 
     public final String value;
