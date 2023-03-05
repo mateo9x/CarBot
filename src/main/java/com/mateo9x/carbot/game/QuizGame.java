@@ -4,7 +4,6 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mateo9x.carbot.CarBot;
 import com.mateo9x.carbot.config.Language;
-import com.mateo9x.carbot.message.MessageSource;
 import com.mateo9x.carbot.model.QuizModel;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.emoji.Emoji;
@@ -25,12 +24,12 @@ public class QuizGame {
     private static final String QUIZ_RESPONSE_TIP_PROPERTY = "quiz.response.tip";
     private static QuizModel quizSaved = null;
 
-    public static void startQuiz(CarBot carBot, Message message) {
+    public static void start(CarBot carBot, Message message) {
         if (!isAnswer(message.getContentDisplay())) {
-            prepareNewQuestion(carBot.getLanguage(), message);
+            prepareNewQuestion(carBot, message);
         } else {
             String answer = message.getContentDisplay().substring(6);
-            checkAnswer(carBot.getLanguage(), message, answer);
+            checkAnswer(carBot, message, answer);
         }
     }
 
@@ -38,28 +37,28 @@ public class QuizGame {
         return text.startsWith("/quiz") && text.length() > 5;
     }
 
-    private static void prepareNewQuestion(Language language, Message message) {
-        String quiz = generateQuiz(language);
-        String header = MessageSource.getMessage(language, QUIZ_START_PROPERTY);
-        String responseTip = MessageSource.getMessage(language, QUIZ_RESPONSE_TIP_PROPERTY);
+    private static void prepareNewQuestion(CarBot carBot, Message message) {
+        String quiz = generateQuiz(carBot);
+        String header = carBot.getMessageSource().getMessage(QUIZ_START_PROPERTY);
+        String responseTip = carBot.getMessageSource().getMessage(QUIZ_RESPONSE_TIP_PROPERTY);
         message.getChannel().sendMessage(header + "\n\n" + quiz + "\n\n" + responseTip)
                 .complete();
     }
 
-    private static void checkAnswer(Language language, Message message, String answer) {
+    private static void checkAnswer(CarBot carBot, Message message, String answer) {
         if (quizSaved == null) {
-            handleQuizDoesntExist(language, message);
+            handleQuizDoesntExist(carBot, message);
         } else {
             if (quizSaved.getAnswers().contains(answer)) {
-                handleQuizCorrectAnswer(language, message);
+                handleQuizCorrectAnswer(carBot, message);
             } else {
-                handleQuizNotCorrectAnswer(language, message);
+                handleQuizNotCorrectAnswer(carBot, message);
             }
         }
     }
 
-    private static String generateQuiz(Language language) {
-        List<QuizModel> quizList = getQuizList(language);
+    private static String generateQuiz(CarBot carBot) {
+        List<QuizModel> quizList = getQuizList(carBot.getMessageSource().getLanguage());
         Random random = new Random();
         int number = random.nextInt(quizList.size());
         QuizModel quizModel = quizList.get(number);
@@ -67,14 +66,14 @@ public class QuizGame {
         return quizModel.getQuestion();
     }
 
-    private static void handleQuizDoesntExist(Language language, Message message) {
-        String response = MessageSource.getMessage(language, QUIZ_NOT_FOUND_PROPERTY);
+    private static void handleQuizDoesntExist(CarBot carBot, Message message) {
+        String response = carBot.getMessageSource().getMessage(QUIZ_NOT_FOUND_PROPERTY);
         message.getChannel().sendMessage(response)
                 .complete();
     }
 
-    private static void handleQuizCorrectAnswer(Language language, Message message) {
-        String response = MessageSource.getMessage(language, QUIZ_CORRECT_PROPERTY);
+    private static void handleQuizCorrectAnswer(CarBot carBot, Message message) {
+        String response = carBot.getMessageSource().getMessage(QUIZ_CORRECT_PROPERTY);
         quizSaved = null;
         message.addReaction(Emoji.fromFormatted("❤"))
                 .complete();
@@ -82,8 +81,8 @@ public class QuizGame {
                 .complete();
     }
 
-    private static void handleQuizNotCorrectAnswer(Language language, Message message) {
-        String response = MessageSource.getMessage(language, QUIZ_NOT_CORRECT_PROPERTY);
+    private static void handleQuizNotCorrectAnswer(CarBot carBot, Message message) {
+        String response = carBot.getMessageSource().getMessage(QUIZ_NOT_CORRECT_PROPERTY);
         message.getChannel().sendMessage(response)
                 .complete();
     }
