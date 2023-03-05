@@ -5,7 +5,12 @@ First plugin for Discord #justTesting.
 ## Functionalities
 - Fun facts `/funfact`
 - Quiz `/quiz`
-- CarMeter `/carmeter`
+- Car meter `/carmeter`
+
+## Pool questions
+- To extend pool of fun facts in game `Fun facts` simply extend file `funFacts.json` in directory `funFacts/{language}`
+- To extend pool of questions in game `Quiz` simply extend file `quiz.json` in directory `quiz/{language}`
+- To extend pool of car brands in game `Car meter` simply extend file `carBrands.json` in directory `carMeter`
 
 ## How to run
 - Generate token on `https://discord.com/developers/applications`
