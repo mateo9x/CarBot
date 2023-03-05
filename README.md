@@ -3,9 +3,9 @@
 First plugin for Discord #justTesting.  
 
 ## Functionalities
-- Fun facts `/funfact`
-- Quiz `/quiz`
-- Car meter `/carmeter`
+- Fun facts `/funfact` - Draws an automotive fun fact
+- Quiz `/quiz` - Draws an automotive question
+- Car meter `/carmeter` - Draws the brand of the vehicle and determines your match
 
 ## Pool questions
 - To extend pool of fun facts in game `Fun facts` simply extend file `funFacts.json` in directory `funFacts/{language}`
