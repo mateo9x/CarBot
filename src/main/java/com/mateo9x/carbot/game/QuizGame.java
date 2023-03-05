@@ -7,6 +7,7 @@ import com.mateo9x.carbot.config.Language;
 import com.mateo9x.carbot.message.MessageSource;
 import com.mateo9x.carbot.model.QuizModel;
 import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.entities.emoji.Emoji;
 import org.springframework.core.io.ClassPathResource;
 
 import java.io.IOException;
@@ -75,6 +76,8 @@ public class QuizGame {
     private static void handleQuizCorrectAnswer(Language language, Message message) {
         String response = MessageSource.getMessage(language, QUIZ_CORRECT_PROPERTY);
         quizSaved = null;
+        message.addReaction(Emoji.fromFormatted("❤"))
+                .complete();
         message.getChannel().sendMessage(response)
                 .complete();
     }
