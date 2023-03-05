@@ -25,7 +25,7 @@ public class FunFactGame {
         int number = random.nextInt(funFacts.size());
         FunFactModel funFact = funFacts.get(number);
         String header = MessageSource.getMessage(carBot.getLanguage(), FUN_FACT_PROPERTY);
-        message.getChannel().sendMessage(header + ": \n" + funFact.getText())
+        message.getChannel().sendMessage(header + "\n\n" + funFact.getText())
                 .complete();
     }
 

@@ -2,6 +2,7 @@ package com.mateo9x.carbot.handler;
 
 import com.mateo9x.carbot.CarBot;
 import com.mateo9x.carbot.config.Language;
+import com.mateo9x.carbot.game.CarMeterGame;
 import com.mateo9x.carbot.game.GameType;
 import com.mateo9x.carbot.game.FunFactGame;
 import com.mateo9x.carbot.game.QuizGame;
@@ -35,6 +36,7 @@ public class MessageHandler {
             switch (GameType.getByValue(getPrefix(message.getContentDisplay()))) {
                 case FunFact -> FunFactGame.drawFunFact(carBot, message);
                 case Quiz -> QuizGame.startQuiz(carBot, message);
+                case CarMeter -> CarMeterGame.start(carBot, message);
             }
         }
     }

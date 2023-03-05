@@ -3,8 +3,9 @@
 First plugin for Discord #justTesting.  
 
 ## Functionalities
-- Fun facts (`/funfact`)
-- Quiz (`/quiz`)
+- Fun facts `/funfact`
+- Quiz `/quiz`
+- CarMeter `/carmeter`
 
 ## How to run
 - Generate token on `https://discord.com/developers/applications`
