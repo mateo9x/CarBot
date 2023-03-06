@@ -3,9 +3,9 @@
 First plugin for Discord #justTesting.  
 
 ## Functionalities
-- Fun facts `/funfact`
-- Quiz `/quiz`
-- Car meter `/carmeter`
+- Fun facts `/funfact` - Draws an automotive fun fact
+- Quiz `/quiz` - Draws an automotive question
+- Car meter `/carmeter` - Draws the brand of the vehicle and determines your match
 
 ## Pool questions
 - To extend pool of fun facts in game `Fun facts` simply extend file `funFacts.json` in directory `funFacts/{language}`
@@ -15,7 +15,7 @@ First plugin for Discord #justTesting.
 ## How to run
 - Generate token on `https://discord.com/developers/applications`
 - Grant permission `MESSAGE_CONTENT` for Your bot on site mentioned above
-- Replace placeholder `$REPLACE_HERE` in file `token.json` with Your generated token
+- Replace placeholder `$REPLACE_HERE` in file `configuration.json` with Your generated token
 - By default language is set to `en`, also available `pl` - just edit in `configuration.json`
 - By default forbidden language is permitted, to change that simply change value of `allowForbiddenLanguage` in `configuration.json`
 - Invite bot to Your server
