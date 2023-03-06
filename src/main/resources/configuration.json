@@ -1,4 +1,5 @@
 {
   "token": "$REPLACE_HERE",
-  "language": "en"
+  "language": "pl",
+  "allowForbiddenLanguage": true
 }
