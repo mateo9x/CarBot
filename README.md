@@ -16,6 +16,7 @@ First plugin for Discord #justTesting.
 - Generate token on `https://discord.com/developers/applications`
 - Grant permission `MESSAGE_CONTENT` for Your bot on site mentioned above
 - Replace placeholder `$REPLACE_HERE` in file `configuration.json` with Your generated token
-- Default language `en`, also available `pl` - just edit in `configuration.json`
+- By default language is set to `en`, also available `pl` - just edit in `configuration.json`
+- By default forbidden language is permitted, to change that simply change value of `allowForbiddenLanguage` in `configuration.json`
 - Invite bot to Your server
 - Simply run CarBot app :)

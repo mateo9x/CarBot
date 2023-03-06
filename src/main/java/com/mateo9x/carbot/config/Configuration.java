@@ -25,6 +25,7 @@ public class Configuration {
     public static class Config {
         private String token;
         private String language;
+        private Boolean allowForbiddenLanguage;
     }
 }
 
